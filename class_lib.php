@@ -2,9 +2,9 @@
 
   class twitterClass {
 
-    public $auth_string;
-    public $access_token;
-    public $url = "https://api.twitter.com";
+    private $auth_string;
+    private $access_token;
+    private $url = "https://api.twitter.com";
 
     function setAuthenticationString($secret_code) {
       //Set Twitter authentication string for Basic Authentication
