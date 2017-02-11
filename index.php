@@ -15,8 +15,7 @@
   $friends = $twt->getFriends($token, <user>);
   $json_friends = json_decode($friends);
   foreach($json_friends->users as $friend) {
-    $show_wall = $twt->getUsersWall($token, $friend->screen_name);
-    echo $show_wall;
+    echo $show_wall->screen_name;
   }
 
  ?>
