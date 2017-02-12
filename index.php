@@ -1,21 +1,17 @@
 <?php
 
-  include("class_lib.php");
+  include("TwitterAdapter.php");
 
-  $consumer_key = <consumer_key>;
-  $consumer_secret = <consumer_secret>;
+  $consumer_key = "<consumerkey>";
+  $consumer_secret = "<consumersecret>";
   $consumer_auth_string = $consumer_key . ":" . $consumer_secret;
 
-  $twt = new twitterClass;
-
-  $twt->setAuthenticationString($consumer_auth_string);
-  $auth_string = $twt->getAuthenticationString();
-  $token = $twt->getToken($auth_string);
-
-  $friends = $twt->getFriends($token, <user>);
+  $twt = new TwitterAdapter($consumer_auth_string);  
+  $twt->generateToken();
+  $friends = $twt->getFriends("<nick>");
   $json_friends = json_decode($friends);
   foreach($json_friends->users as $friend) {
-    echo $friend->screen_name;
+    echo $friend->screen_name.PHP_EOL;
   }
 
  ?>
